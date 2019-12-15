@@ -1,5 +1,6 @@
 /* eslint-disable */
 
+/*
 const name = 'wes';
 const middle = "topher";
 const last = `bos`;
@@ -30,24 +31,25 @@ const html = `
 `;
 
 document.body.innerHTML = html;
+*/
 
-/*
 
 
-// const age = 100.5;
-// const name = 'wes';
+const age = 100.5;
+const name = 'wes';
 
-// const a = 10;
-// const b = 20;
-/*
+const a = 10;
+const b = 20;
+
 const smarties = 20;
 const kids = 3;
 const eachKidGets = Math.floor(smarties / kids);
 const dadGets = smarties % kids;
 console.log(`Each kids gets ${eachKidGets}`);
+console.log(`Dad gets ${dadGets}`);
 
 const price = 1034;
-*/
+
 
 
 /*
