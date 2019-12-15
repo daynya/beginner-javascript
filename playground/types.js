@@ -31,7 +31,6 @@ const html = `
 `;
 
 document.body.innerHTML = html;
-*/
 
 
 
@@ -49,7 +48,7 @@ console.log(`Each kids gets ${eachKidGets}`);
 console.log(`Dad gets ${dadGets}`);
 
 const price = 1034;
-
+*/
 
 
 /*
@@ -80,6 +79,7 @@ const teller = {
 teller.first = 'Teller';
 teller.last = null;
 
+*/
 
 let isDrawing = false;
 let age = 18;
@@ -89,4 +89,4 @@ console.log(ofAge);
 age = 100;
 let age2 = 100;
 
-*/
+
