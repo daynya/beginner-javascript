@@ -1,4 +1,4 @@
-// const age = 100;
+const age = 100;
 
 // function go() {
 //   const myAge = 200;
