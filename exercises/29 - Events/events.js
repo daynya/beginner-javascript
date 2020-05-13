@@ -15,18 +15,34 @@ butts.removeEventListener('click', handleClick);
 // Listen on multiple items
 const buyButtons = document.querySelectorAll('button.buy');
 
-function buyItem() {
-  console.log('buying item');
-};
-
-function handleBuyButtonClick(buyButton) {
-  console.log('Binding the buy button');
-  buyButton.addEventListener('click', buyItem);
+function handleBuyButtonClick() {
+  console.log("you clicked a button");
+  const button = event.target;
+  // console.log(button.textContent);
+  // console.log(parseFloat(event.target.dataset.price));
+  console.log(event.currentTarget);
+  console.log(event.target);
+  console.log(event.target === event.currentTarget);
+  // stop this event from bubbling up to other layers
+  // event.stopPropagation();
 }
 
-//buyButtons.forEach(handleBuyButtonClick);
-buyButtons.forEach((button) => {
-  button.addEventListener('click', () => {
-    console.log("you clicked it");
-  })
-})
+buyButtons.forEach(function(buyButton) {
+  buyButton.addEventListener('click', handleBuyButtonClick);
+});
+
+window.addEventListener('click', function(event) {
+  console.log('you clicked the window!');
+  // this shows what was clicked on 
+  console.log(event.target);
+  console.log(event.type);
+  console.log(event.bubbles);
+  event.stopPropagation();
+}, { capture: true });
+
+const photoEl = document.querySelector('.photo');
+
+photoEl.addEventListener('mouseenter', function(e) {
+  console.log(e.currentTarget);
+  console.log(this);
+});
