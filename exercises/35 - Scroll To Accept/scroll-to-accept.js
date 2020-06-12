@@ -3,7 +3,6 @@ const watch = document.querySelector('.watch');
 const button = document.querySelector('.accept');
 
 function obCallback(payload) {
-    console.log(payload);
     if(payload[0].isIntersecting){
         button.disabled = false;
     // stop observing button
