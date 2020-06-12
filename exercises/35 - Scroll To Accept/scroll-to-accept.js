@@ -3,7 +3,8 @@ const watch = document.querySelector('.watch');
 const button = document.querySelector('.accept');
 
 function obCallback(payload) {
-    if(payload[0].intersectionRatio === 1){
+    console.log(payload);
+    if(payload[0].isIntersecting){
         button.disabled = false;
     // stop observing button
         ob.unobserve(terms.lastElementChild);
