@@ -66,6 +66,56 @@
       console.log('no dog for you');
     }
 
+    console.clear();
+    
+    //coercion
+    const isCool = true;
+
+    if(!isCool) {
+      console.log('you are not cool');
+    }
+
+    //ternaries
+    const count = 1;
+    // let word;
+    // if(count === 1) {
+    //   word = 'item';
+    // } else {
+    //   word = 'items';
+    // }
+
+    const word = count === 1 ? 'item' : 'items';
+    const sentence = `You have ${count} ${word} in your cart`;
+    console.log(sentence);
+
+    function showAdminBar() {
+      console.log('Showing admin bar');
+    }
+    const isAdmin = true;
+    //isAdmin ? showAdminBar() : null;
+
+    //And And trick
+    function check1() {
+      return true;
+    }
+    function check2() {
+      return false;
+    }
+    function check3() {
+      return true;
+    }
+    if((check1) && check2() && check3()) {
+      console.log('All checks passed');
+    } else {
+      console.log('Some checks failed');
+    }
+
+    //isAdmin ? showAdminBar() : null;
+    isAdmin && showAdminBar();
+
+    //If conditional is on one line, no need for brackets:
+    //if(isAdmin) showAdminBar();
+
   </script>
 </body>
 
