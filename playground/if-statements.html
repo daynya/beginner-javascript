@@ -9,17 +9,22 @@
 </head>
 
 <body>
-  * empty array
-  * empty object
+
+  <h2>Truthy Values</h2>
   * 1
   * -10
   * full string
   * a string of "0"
+  * empty array
+  * empty object
+
+  <h2>Falsy Values</h2>
   * 0
-  * undefined variable
-  * Variable set to null
-  * a variable set to `"hello" - 10` NaN
+  * undefined
+  * variable set to null
+  * NaN
   * empty string
+
 
   <script>
 
@@ -29,6 +34,36 @@
         return slug.toLowerCase();
       }
       return slug;
+    }
+
+    // second way: 
+    // function slugify(sentece, lowercase) {
+    //  let slug = sentece. replace(/\s/g, '-');
+    //  if (lowercase){
+    //    return slug.toLowercase();
+    //  }
+    //  return slug;
+    //}
+
+    const name = 'wes';
+
+    if ('awesome'.includes(name)) {
+      console.log('Super cool awesome name!');
+    }
+
+    function nameIsAwesome(name) {
+      return 'awesome'.includes(name);
+    }
+
+    if (nameIsAwesome('wes')) {
+      console.log('Cool name wes');
+    }
+
+    const dog = 'snickers';
+    if(dog) {
+      console.log('you have a dog');
+    } else {
+      console.log('no dog for you');
     }
 
   </script>
