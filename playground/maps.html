@@ -11,31 +11,34 @@
 <body>
   <ul class="prizes"></ul>
   <script>
+    //can use this as a reference to store a key in a map(below)
     const person1 = {
       name: 'wes',
-      age: 200
+      age: 200,
     };
 
+    //maps allow us to put any TYPE into the key, and into the value, whereas with objects, you can only put different types in as a value
     const myMap = new Map();
     // .set()
     myMap.set('name', 'wes');
     myMap.set(100, 'This is a number');
-    myMap.set(person1, 'Really Cool');
+    myMap.set(person1, 'really cool');
     console.log(myMap);
 
-    const score = 200;
+    const score = 300;
     const prizes = new Map();
     prizes.set(100, 'Bear');
     prizes.set(200, 'Duck');
     prizes.set(300, 'Car');
-    console.log(`you win a ${prizes.get(score)}`);
+    console.log(`You win a ${prizes.get(score)}`);
 
-    // select that ul
+    //select the ul
     const ul = document.querySelector('.prizes');
-    for (const [points, prize] of prizes) {
+    for(const [points, prize] of prizes) {
       const li = `<li>${points} - ${prize}</li>`;
       ul.insertAdjacentHTML('beforeend', li);
     }
+
     // .has()
     // .delete()
   </script>
