@@ -12,78 +12,91 @@
 
 <body>
   <script>
-    const names = ['wes', 'kait', 'snickers'];
+    const names = ['wes', 'kate', 'snickers', 'last one'];
+    //see how long array is
+    //console.log(names.length);
+    //access last item in an array without knowing index
+    //console.log(names[names.length - 1]);
 
-    console.log(names[0]);
-    console.log(names.length);
-    console.log(names[names.length - 1]);
-
+    //to add items to an array
+    //this does mutate original
     names.push('lux');
-    console.log(names);
+    //console.log(names);
+    //no mutation:
     const names2 = [...names, 'lux'];
+    //console.log(names2);
+    //to add to beginning of array, with mutation:
     names.unshift('poppy');
-    console.log(names);
+    //console.log(names);
+    //no mutation: 
     const names3 = ['poppy', ...names];
-    console.log(names3);
+    //console.log(names3);
 
+    //add an item to an array
     const bikes = ['bianchi', 'miele', 'panasonic', 'miyata'];
     const newBikes = [
-      ...bikes.slice(0, 2),
+      ...bikes.slice(0,2),
       'benotto',
       ...bikes.slice(2)
     ];
+    console.log(newBikes);
 
+    //remove an item from an array
     const newBikes2 = [
-      ...newBikes.slice(0, 3),
+      ...newBikes.slice(0,3),
       ...newBikes.slice(4)
     ];
     console.log(newBikes2);
 
     //
     const comments = [
-      { text: 'Cool Beans', id: 123 },
-      { text: 'Love this', id: 133 },
-      { text: 'Neato', id: 233 },
-      { text: 'good bikes', id: 333 },
-      { text: 'so good', id: 433 },
-    ];
+      { text: 'Cool', id: 123 },
+      { text: 'Wow', id: 128 },
+      { text: 'Nice!', id: 126 },
+      { text: 'Love it', id: 120 },
+      { text: 'No way!', id: 121 },
+    ]
 
     function deleteComment(id, comments) {
-      // first find the index of the item in the array
-      const commentIndex = comments.findIndex(comment => comment.id === id);
-      // make a new array without that item in it
+      //find index of item in the array
+      //make a new array without that item
+      //return new array
+      const commentIndex = comments.findIndex(comment => comment.id ===id);
       return [
         ...comments.slice(0, commentIndex),
         ...comments.slice(commentIndex + 1),
       ];
-      // return our new array
     }
 
-    const kaitIndex = names.findIndex(name => name === 'kait');
-    const newNamesWithOutKait = [
-      // get everything up to kait index
-      ...names.slice(0, kaitIndex),
-      // everything after Kait index
-      ...names.slice(kaitIndex + 1)
+    const kateIndex = names.findIndex(name => {
+      return name === 'kate';
+    });
+    const newNamesWithoutKate = [
+      // get everything up to kate index
+      ...names.slice(0, kateIndex),
+      //everything after kate index
+      ...names.slice(kateIndex + 1),
     ];
-    console.log(newNamesWithOutKait);
+    console.log(newNamesWithoutKate);
 
-    // const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
-    // console.log(numbers);
-    // numbers.splice(3, 2);
-    // console.log(numbers);
+    //Splice is mutable, removes items from original array, Slice creates new, separate array 
+    const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+    //console.log(numbers);
+    numbers.splice(3, 2)
+    //console.log(numbers);
 
-    // // Mutation Methods - DO CHANGE THE ORIGINAL DATA
-    // const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-    // // anytime you want to use a mutation method and NOT mutate the orignal array
-    // // we need to take a copy of the array
+    //mutation method - original data has been changed from what it was set to be
+    //const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+    //to use a mutation method and NOT mutate original array, take a copy of original array
     // const numbersReversed = [...numbers].reverse();
     // console.log(numbersReversed);
-    // // numbers.reverse();
+
     // console.log(numbers);
-    // // Immutable - THEY DO NOT CHANGE THE ORIGINAL DATA
-    // const pizzaSlice = numbers.slice(2, 4);
+
+    //Immutable - they DO NOT change original data
+    // const pizzaSlice = numbers.slice(2,4);
     // console.log(pizzaSlice);
     // console.log(numbers);
 
