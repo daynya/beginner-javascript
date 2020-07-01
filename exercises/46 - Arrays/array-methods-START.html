@@ -151,8 +151,52 @@
     */
 
     // find the first rating that talks about a burger with find()
+    //option 1
+    // function findBurgRating(singleFeedback, i, array) {
+    //   return singleFeedback.comment.includes('burg');
+    // }
+
+    //option 2 const function
+    // const findBurgRating = function (singleFeedback) {
+    //   return singleFeedback.comment.includes('burg');
+    // }
+
+    //option 3 arrow function
+    const findBurgRating = (singleFeedback) => singleFeedback.comment.includes('burg');
+
+    //option 4, object
+    // const util = {
+    //   findBurgRating: function (singleFeedback) {
+    //     return singleFeedback.comment.includes('burg');
+    //   }
+    // }
+
+    //option 5 function to create more functions with specific argument
+    function findByWord(word) {
+      return function(singleFeedback) {
+        return singleFeedback.comment.includes(word);
+      }
+    } 
+
+    const burgRating = feedback.find(findByWord('burg'));
+    const smoothieRating = feedback.find(findByWord('Smoothie'));
+
+    console.log(burgRating, smoothieRating);
+
     // find all ratings that are above 2 with filter()
+    function filterByMinRating(minRating) {
+      return function(singleFeedback) {
+        return singleFeedback.rating > minRating
+      }
+    }
+
+    const goodReviews = feedback.filter(filterByMinRating(3));
+    console.table(goodReviews);
+
     // find all ratings that talk about a burger with filter()
+    const burgRatings = feedback.filter(findByWord('burg'));
+    console.table(burgRatings);
+
     // Remove the one star rating however you like!
 
     // check if there is at least 5 of one type of meat with some()
