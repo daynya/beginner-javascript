@@ -198,12 +198,42 @@
     console.table(burgRatings);
 
     // Remove the one star rating however you like!
+    const legitRatings = feedback.filter(single => single.rating !== 1);
+    console.table(legitRatings);
 
     // check if there is at least 5 of one type of meat with some()
+    const isThereEnoughOfAtLeaseOneMeat = Object.values(meats).some(meatValue => meatValue >= 5);
+    console.log(isThereEnoughOfAtLeaseOneMeat);
+
     // make sure we have at least 3 of every meat with every()
+    const isThereEnoughOfEveryMeat = Object.values(meats).every(meatValue => meatValue >= 3);
+    console.log(isThereEnoughOfEveryMeat);
+
     // sort the toppings alphabetically with sort()
+    // for numbers:
+    const numbers = [1, 2, 100, 3, 200, 400, 155];
+    const numbersSorted = numbers.sort(function(firstItem, secondItem) {
+      return firstItem - secondItem;
+    });
+    console.log(numbersSorted);
+    //for strings, it does it automatically: 
+    console.log(toppings.sort());
+
     // sort the order totals from most expensive to least with .sort()
-    // Sort the prices with sort()
+    function numberSort(a, b) {
+      return a - b;
+    }
+    console.log(orderTotals.sort(numberSort));
+
+    // Sort the prices with sort() - they are in an Object currently
+    const productsSortedByPrice = Object.entries(prices).sort(function(a, b) {
+      const aPrice = a[1];
+      const bPrice = b[1];
+      return aPrice - bPrice;
+    });
+    console.table(productsSortedByPrice);
+    //can turn back into a regular object with 
+    //consoletable(Object.fromEntries(productsSortedByPrice));
 
     /*
       Looping Methods (next)
