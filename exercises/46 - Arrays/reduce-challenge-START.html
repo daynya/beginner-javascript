@@ -556,38 +556,36 @@ TermsPrivacyCookies
 © 2005-2019 Mozilla and individual contributors.Content is available under these licenses.
     `;
 
-    function isValidChar(char) {
-      return char.match(/[a-z0-9]/i);
-    }
+  function isValidChar(char) {
+    return char.match(/[a-z0-9]/i);
+  }
 
-    // function lowercase(char) {
-    //   return char.toLowerCase();
-    // }
-    const lowercase = char => char.toLowerCase();
+  function lowercase(char) {
+    return char.toLowerCase();
+  }
 
-    function instanceCounter(counts, char) {
-      counts[char]
-        // if exists
-        ? counts[char] = counts[char] + 1
-        // if does not exist
-        : counts[char] = 1;
+  function instanceCounter(counts, char) {
+    counts[char] 
+      ? counts[char] = counts[char] + 1 
+      : counts[char] = 1;
+    return counts;
+  }
 
-      return counts;
-    }
+  const result = text
+    .split('') // split each char into an item an of an array
+    .filter(isValidChar) // check to see if it's a valid char
+    .map(lowercase) // convert to lowercase
+    .reduce(instanceCounter, {})
 
-    const result = text
-      .split('') // split each char into an item of an array
-      .filter(isValidChar)
-      .map(lowercase) // convert every letter to lowercase
-      .reduce(instanceCounter, {});
+  function sortByValue(a, b) {
+    return a[1] - b[1];
+  }
+  const sortedResult = Object
+    .entries(result)
+    .sort(sortByValue);
 
-    function sortByValue(a, b) {
-      return a[1] - b[1];
-    }
-    const sortedResult = Object
-      .entries(result)
-      .sort(sortByValue);
-    console.log(sortedResult);
+  console.log(sortedResult);
+
 
   </script>
 </body>
