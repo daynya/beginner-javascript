@@ -21,26 +21,26 @@
     }
 
     // For
-    // for (let i = 100; i <= 120; i += 2) {
+    // for(let i=0; i <= 10; i++) {
     //   console.log(i);
     // }
 
-    // for (let i = 0; i < numbers.length; i++) {
+    // for(let i=0; i < numbers.length; i++) {
     //   console.log(numbers[i]);
     // }
 
     // For of
-
-    for (const letter of name) {
+    for(const letter of name) {
       console.log(letter);
     }
 
-    for (const number of numbers) {
-      console.log(number)
+    for(const number of numbers) {
+      console.log(number);
     }
+
     // For in - used for looping over keys of an object
-    for (const prop in wes) {
-      console.log(prop)
+    for(const prop in wes) {
+      console.log(prop);
     }
 
     const baseHumanStats = {
@@ -58,22 +58,27 @@
 
     const wes2 = new Human('wes');
 
-    console.log(Object.entries(wes2))
+    console.log(Object.entries(wes2));
 
-    for (const prop in wes2) {
+    for(const prop in wes2) {
       console.log(prop);
     }
 
-    // While Loop
+    // While Loop - takes a condition and runs infinitely until condition is false
     let cool = true;
     let i = 1;
-    while (cool === true) {
-      console.log('You are cool');
+    while(cool === true) {
+      console.log('you are cool');
       i++;
-      if (i > 100) {
+      if(i > 100) {
         cool = false;
       }
     }
+
+    // Do While Loop - do runs first, then checks condition. 
+    // do {
+
+    // } while ()
 
   </script>
 </body>
