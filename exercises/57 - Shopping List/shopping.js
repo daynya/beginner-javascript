@@ -8,6 +8,7 @@ const items = [];
 function handleSubmit(e) {
     e.preventDefault();
     const name = e.currentTarget.item.value;
+    if(!name) return;
     const item = {
         name: name,
         id: Date.now(),
@@ -18,7 +19,9 @@ function handleSubmit(e) {
     console.log(`There are now ${items.length} in your state`);
     // clear the form
     e.currentTarget.item.value = '';
-    displayItems();
+    // fire off custom event that will tell anyone else that the items have been updated
+    list.dispatchEvent(new CustomEvent('itemsUpdated'));
+    
 }
 
 function displayItems() {
@@ -35,9 +38,27 @@ function displayItems() {
     console.log(html);
 }
 
+function mirrorToLocalStorage() {
+    console.info('saving items to localstorage');
+    localStorage.setItem('items', JSON.stringify(items));
+}
+
+function restoreFromLocalStorage() {
+    console.info('restoring from local storage');
+    // pull items from local storage
+    const lsItems = JSON.parse(localStorage.getItem('items'));
+    if(lsItems.length) {
+        // doesn't work because items is a const
+        // items = lsItems;
+        items.push(...lsItems);
+        list.dispatchEvent(new CustomEvent('itemsUpdated'));
+    }
+}
+
 shoppingForm.addEventListener('submit', handleSubmit);
+list.addEventListener('itemsUpdated', displayItems);
+list.addEventListener('itemsUpdated', mirrorToLocalStorage);
 
-// keep track of shopping list items and if they are complete
+restoreFromLocalStorage();
 
-
-// 
+const buttons = list.querySelector
