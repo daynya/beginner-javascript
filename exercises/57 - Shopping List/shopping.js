@@ -61,4 +61,3 @@ list.addEventListener('itemsUpdated', mirrorToLocalStorage);
 
 restoreFromLocalStorage();
 
-const buttons = list.querySelector
