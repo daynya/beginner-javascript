@@ -2,7 +2,7 @@ const shoppingForm = document.querySelector('.shopping');
 const list = document.querySelector('.list');
 
 // we need an array to hold our state
-const items = [];
+let items = [];
 
 // listen for when something is input and submitted
 function handleSubmit(e) {
@@ -26,17 +26,23 @@ function handleSubmit(e) {
 
 function displayItems() {
     const html = items
-        .map(
-            item => `<li class="shopping-item">
-            <input type="checkbox">
-            <span class="itemName">${item.name}</span>
-            <button aria-label="Remove ${item.name}">&times;</button>
+      .map(
+        item => `<li class="shopping-item">
+        <input
+          value="${item.id}"
+          type="checkbox"
+          ${item.complete && 'checked'}
+        >
+        <span class="itemName">${item.name}</span>
+        <button
+          aria-label="Remove ${item.name}"
+          value="${item.id}"
+        >&times;</buttonaria-label="Remove>
     </li>`
-        )
-        .join('');
+      )
+      .join('');
     list.innerHTML = html;
-    console.log(html);
-}
+  }
 
 function mirrorToLocalStorage() {
     console.info('saving items to localstorage');
@@ -55,9 +61,33 @@ function restoreFromLocalStorage() {
     }
 }
 
+function deletingItem(id) {
+    console.log('Deleting item!', id);
+    // udpate items array without this one
+    items = items.filter(item => item.id !== id);
+    list.dispatchEvent(new CustomEvent('itemsUpdated'));
+}
+
+function markAsComplete(id) {
+    console.log('marking as complete', id);
+    const itemRef = items.find(item => item.id === id);
+    itemRef.complete = !itemRef.complete;
+}
+
 shoppingForm.addEventListener('submit', handleSubmit);
 list.addEventListener('itemsUpdated', displayItems);
 list.addEventListener('itemsUpdated', mirrorToLocalStorage);
-
+// Event Delegation - listen for click on the list <ul>, 
+// but then delegate the click over to the butotn if that
+// is what was clicked.
+list.addEventListener('click', function(e) {
+    const id = parseInt(e.target.value);
+    if(e.target.matches('button')) {
+        deletingItem(id);
+    }
+    if(e.target.matches('input[type="checkbox"]')) {
+        markAsComplete(id);
+    }
+});
 restoreFromLocalStorage();
 
