@@ -18,7 +18,7 @@ function handleSubmit(e) {
     items.push(item);
     console.log(`There are now ${items.length} in your state`);
     // clear the form
-    e.currentTarget.item.value = '';
+    e.currentTarget.reset();
     // fire off custom event that will tell anyone else that the items have been updated
     list.dispatchEvent(new CustomEvent('itemsUpdated'));
     
@@ -31,7 +31,7 @@ function displayItems() {
         <input
           value="${item.id}"
           type="checkbox"
-          ${item.complete && 'checked'}
+          ${item.complete ? 'checked' : ''}
         >
         <span class="itemName">${item.name}</span>
         <button
@@ -72,6 +72,7 @@ function markAsComplete(id) {
     console.log('marking as complete', id);
     const itemRef = items.find(item => item.id === id);
     itemRef.complete = !itemRef.complete;
+    list.dispatchEvent(new CustomEvent('itemsUpdated'));
 }
 
 shoppingForm.addEventListener('submit', handleSubmit);
