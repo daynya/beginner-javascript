@@ -9,8 +9,8 @@
 </head>
 
 <body>
-
-
+  <button class="one">Button 1</button>
+  <button class="two">Button 2</button>
   <script>
     const myDate = new Date('August 11, 2025');
     console.dir(myDate);
@@ -23,17 +23,37 @@
     const span = document.createElement('span');
     console.log(span);
 
-    function Pizza() {
+    function Pizza(toppings = [], customer) {
       console.log('Making a pizza');
+      // save the toppings that were passed in, to this instance of pizza
+      this.toppings = toppings;
+      this.customer = customer;
+      this.id = Math.floor(Math.random() * 16777215).toString(16);
     }
 
     // if you don't use the NEW keyword here, you get "undefined"
     // if you use NEW, you get an object that's an instance of whatever function you have created it from
-    const pepperoniPizza = new Pizza();
-    console.log(pepperoniPizza);
-    console.log(pepperoniPizza.constructor); // constructor tells what function made this object
-    console.log(pepperoniPizza instanceof Pizza); // is pepperoniPizza an instance of Pizza?
+    const pepperoniPizza = new Pizza(['pepperoni'], 'Wes');
+    const canadianPizza = new Pizza(['pepperoni', 'mushrooms', 'onion'], 'Kate');
   
+    const button1 = document.querySelector('.one');
+    const button2 = document.querySelector('.two');
+
+    // the THIS keyword is whatever is to the left of what is called.
+    // in below case, it's button1 or button2
+    // if you use an arrow function, the this keyword does not change, so it's whatever was
+    // set in a prior function - if there is no prior function, it's going to be Window.
+    // function tellMeAboutTheButton() {
+    //   console.log('outside', this);
+    //   setTimeout(() => {
+    //     console.log('inside', this)
+    //     this.textContent = "You clicked me";
+    //   }, 1000);
+    // }
+
+    // button1.addEventListener('click', tellMeAboutTheButton);
+    // button2.addEventListener('click', tellMeAboutTheButton);
+
   </script>
 </body>
 
