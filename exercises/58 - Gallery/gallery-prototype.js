@@ -9,7 +9,12 @@ function Gallery(gallery) {
   this.prevButton = this.modal.querySelector('.prev');
   this.nextButton = this.modal.querySelector('.next');
   
- 
+ // bind our methods to the instance when we need them
+ this.showNextImage = this.showNextImage.bind(this);
+ this.showPrevImage = this.showPrevImage.bind(this);
+ this.handleKeyUp = this.handleKeyUp.bind(this);
+ this.handleClickOutside = this.handleClickOutside.bind(this);
+
   // these are our event listeners
   this.images.forEach(image =>
     image.addEventListener('click', e => this.showImage(e.currentTarget))
@@ -38,7 +43,7 @@ Gallery.prototype.openModal = function() {
     this.modal.classList.add('open');
 
     // Event listeners to be bound when we open the modal
-    window.addEventListener('keyup', this.handleKeyUp);
+    window.addEventListener('keyup',e => this.handleKeyUp(e));
     this.nextButton.addEventListener('click', this.showNextImage);
     this.prevButton.addEventListener('click', this.showPrevImage);
   }
@@ -53,7 +58,7 @@ Gallery.prototype.openModal = function() {
 
   Gallery.prototype.handleClickOutside = function(e) {
     if(e.target === e.currentTarget) {
-      closeModal();
+      this.closeModal();
     }
   }
 
