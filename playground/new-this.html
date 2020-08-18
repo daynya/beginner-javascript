@@ -18,10 +18,20 @@
 
     const names = new Array('wes', 'kait');
     const wes = new Object({ name: 'wes' });
-    
     // don't need to use NEW keyword here bc under the hood, this does that for us.
     const span = document.createElement('span');
-    console.log(span);
+    
+    String.prototype.sarcastic = function() {
+      //make sarcastic
+      const sarcastic = this.split('').map((char, i) => {
+        if(i%2) {
+          return char.toUpperCase();
+        } else {
+          return char.toLowerCase();
+        }      
+      }).join('');
+      return sarcastic;
+    }
 
     function Pizza(toppings = [], customer) {
       console.log('Making a pizza');
@@ -51,6 +61,10 @@
       }
     }
 
+    Pizza.prototype.describe = function() {
+      return `This pizza is for ${this.customer} with the toppings ${this.toppings.join(',')}
+      and there are ${this.slices} slices left`
+    }
 
     // if you don't use the NEW keyword here, you get "undefined"
     // if you use NEW, you get an object that's an instance of whatever function you have created it from
