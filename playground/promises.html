@@ -12,6 +12,10 @@
   <script>
       function makePizza(toppings = []) {
           return new Promise(function(resolve, reject) {
+              // reject if the pizza includes pineapple
+              if(toppings.includes('pineapple')) {
+                  reject('Seriously? Get outta here!');
+              }
               const amountOfTimeToBake = 500 + (toppings.length * 200);
               // wait 1 second for pizza to cook
               setTimeout(function() {
@@ -45,21 +49,29 @@
     //     });
 
         // run them concurrently
-        const pizzaPromise1 = makePizza(['hot peppers', 'onion', 'feta']);
-        const pizzaPromise2 = makePizza(['cheese', 'peppers', 'onions', 'olives', 'sausage', 'pepperoni', 'hot peppers', 'bacon', 'feta', 'cheddar']);
-        const pizzaPromise3 = makePizza(['ham', 'cheese']);
+        // const pizzaPromise1 = makePizza(['hot peppers', 'onion', 'feta']);
+        // const pizzaPromise2 = makePizza(['cheese', 'peppers', 'onions', 'olives', 'sausage', 'pepperoni', 'hot peppers', 'bacon', 'feta', 'cheddar']);
+        // const pizzaPromise3 = makePizza(['ham', 'cheese']);
 
-        const dinnerPromise = Promise.all([pizzaPromise1, pizzaPromise2, pizzaPromise3]);
+        // const dinnerPromise = Promise.all([pizzaPromise1, pizzaPromise2, pizzaPromise3]);
 
-        dinnerPromise.then(function([hottie, garbagePail, hamChee]) {
-            console.log(hottie, garbagePail, hamChee);
-        });
+        // dinnerPromise.then(function([hottie, garbagePail, hamChee]) {
+        //     console.log(hottie, garbagePail, hamChee);
+        // });
 
-        const firstPizzaPromise = Promise.race([pizzaPromise1, pizzaPromise2, pizzaPromise3]);
-        firstPizzaPromise.then(pizza => {
-            console.log('You must be hungry, here is the first pizza ready');
-            console.log(pizza);
-        });
+        // const firstPizzaPromise = Promise.race([pizzaPromise1, pizzaPromise2, pizzaPromise3]);
+        // firstPizzaPromise.then(pizza => {
+        //     console.log('You must be hungry, here is the first pizza ready');
+        //     console.log(pizza);
+        // });
+
+        makePizza(['cheese', 'ham', 'pineapple'])
+            .then(pizza => {
+                console.log(pizza);
+            }).catch(err => {
+                console.log('Oh noooo!');
+                console.log(err);
+            });
 
   </script>
 </body>
