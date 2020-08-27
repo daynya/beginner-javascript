@@ -10,8 +10,9 @@
 
 <body>
   <script>
-      function makePizza(toppings) {
+      function makePizza(toppings = []) {
           return new Promise(function(resolve, reject) {
+              const amountOfTimeToBake = 500 + (toppings.length * 200);
               // wait 1 second for pizza to cook
               setTimeout(function() {
                 // when you are ready, you can resolve this promise
@@ -22,15 +23,43 @@
           });
       }
 
-      makePizza(['pepperoni']).then(function(pizza) {
-        console.log(pizza);
-        return makePizza(['ham', 'cheese']);
-      }).then(function(pizza) {
-          console.log(pizza);
-          return makePizza(['hot peppers', 'onion', 'feta']);
-      }).then(function(pizza) {
+    //   makePizza(['pepperoni'])
+    //     .then(function(pizza) {
+    //       console.log(pizza);
+    //       return makePizza(['ham', 'cheese']);
+    //     })
+    //     .then(function(pizza) {
+    //       console.log(pizza);
+    //       return makePizza(['hot peppers', 'onion', 'feta']);
+    //     })
+    //     .then(function(pizza) {
+    //       console.log(pizza);
+    //       return makePizza();
+    //     })
+    //     .then(function(pizza) {
+    //       console.log(pizza);
+    //       return makePizza(['cheese', 'peppers', 'onions', 'olives', 'sausage', 'pepperoni', 'hot peppers', 'bacon', 'feta', 'cheddar']);
+    //     }).then(pizza => {
+    //       console.log('All done, here is your last pizza!');
+    //       console.log(pizza);
+    //     });
+
+        // run them concurrently
+        const pizzaPromise1 = makePizza(['hot peppers', 'onion', 'feta']);
+        const pizzaPromise2 = makePizza(['cheese', 'peppers', 'onions', 'olives', 'sausage', 'pepperoni', 'hot peppers', 'bacon', 'feta', 'cheddar']);
+        const pizzaPromise3 = makePizza(['ham', 'cheese']);
+
+        const dinnerPromise = Promise.all([pizzaPromise1, pizzaPromise2, pizzaPromise3]);
+
+        dinnerPromise.then(function([hottie, garbagePail, hamChee]) {
+            console.log(hottie, garbagePail, hamChee);
+        });
+
+        const firstPizzaPromise = Promise.race([pizzaPromise1, pizzaPromise2, pizzaPromise3]);
+        firstPizzaPromise.then(pizza => {
+            console.log('You must be hungry, here is the first pizza ready');
             console.log(pizza);
-      });
+        });
 
   </script>
 </body>
