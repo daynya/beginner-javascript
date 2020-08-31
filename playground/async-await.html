@@ -17,31 +17,41 @@
     }
 
     function makePizza(toppings = []) {
-      return new Promise(function (resolve, reject) {
-        // reject if people try with pineapple
-        if (toppings.includes('pineapple')) {
-          reject('Seriously? Get out 🍍');
-        }
-        const amountOfTimeToBake = 500 + (toppings.length * 200);
-        // wait 1 second for the pizza to cook:
-        setTimeout(function () {
-          // when you are ready, you can resolve this promise
-          resolve(`Here is your pizza 🍕 with the toppings ${toppings.join(' ')}`);
-        }, amountOfTimeToBake);
-        // if something went wrong, we can reject this promise;
-      });
-    }
+          return new Promise(function(resolve, reject) {
+              // reject if the pizza includes pineapple
+              if(toppings.includes('pineapple')) {
+                  reject('Seriously? Get outta here!');
+              }
+              const amountOfTimeToBake = 500 + (toppings.length * 200);
+              // wait 1 second for pizza to cook
+              setTimeout(function() {
+                // when you are ready, you can resolve this promise
+                resolve(`Here is your pizza, with the toppings ${toppings.join(' ')}`);
+              }, 1000);
+
+              // if something went wrong, we can reject the promise
+          });
+      }
+
 
     async function go() {
-      console.log('Starting');
+      console.log('starting');
       await wait(2000);
-      console.log('running');
-      await wait(200);
       console.log('ending');
     }
 
     // go();
 
+    // in order to get the data back from the promise, you must run await otherwise you just get the promise back.
+    // async function makeDinner() {
+    //   const pizza1 = await makePizza(['pepperoni']);
+    //   console.log(pizza1);
+    //   const pizza2 = await makePizza(['mushrooms']);
+    //   console.log(pizza2)
+    // }
+
+    // This is sometimes inefficient - and you can run somethings concurrently
+    // can also do this, with one big promise we await: 
     async function makeDinner() {
       const pizzaPromise1 = makePizza(['pepperoni']);
       const pizzaPromise2 = makePizza(['mushrooms']);
@@ -51,32 +61,34 @@
 
     makeDinner();
 
+    // Ways to declare async await functions: 
+
     // // Function declaration
-    // async function fd() { }
+    // async function fd() {}
 
-    // // arrow function
-    // const arrowFn = async () => { }
+    // // Arrow function
+    // const arrowFN = async () => { }
 
-    // // call back
-    // window.addEventListener('click', async function () {
+    // // Callback function
+    // window.addEventListener('click', async function() {
 
     // })
 
-    // //
+    // // Methods
     // const person = {
-    //   // method
-    //   sayHi: async function () {
+    //   sayHi: async function() {
 
     //   },
-    //   // method shorthand
+    //   // method shorthand: 
     //   async sayHello() {
 
     //   },
-    //   // function property
+    //   // function property:
     //   sayHey: async () => {
 
     //   }
     // }
+
   </script>
 </body>
 

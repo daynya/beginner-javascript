@@ -54,6 +54,23 @@
 
     const go = document.querySelector('.go');
 
+    //refactoring animate from below as async await
+    async function animate2(e) {
+        const el = e.currentTarget;
+        el.textContent = "GO!";
+        await wait(200);
+        el.classList.add('circle');
+        await wait(500);
+        el.classList.add('red');
+        await wait(250);
+        el.classList.remove('circle');
+        await wait(500);
+        el.classList.remove('red');
+        el.classList.add('purple');
+        await wait(500);
+        el.classList.add('fadeOut');
+    }
+
     function animate(e) {
         const el = e.currentTarget;
         el.textContent = "GO!";
@@ -80,7 +97,7 @@
         })
     }
 
-    go.addEventListener('click', animate);
+    go.addEventListener('click', animate2);
 
     // go.addEventListener('click', function go(e) {
     //     const el = e.currentTarget;
