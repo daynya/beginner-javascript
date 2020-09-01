@@ -32,16 +32,21 @@
       });
     }
 
+    function handleError(err) {
+        console.log('Oh no!');
+        console.log(err);
+    }
     async function go() {
-        try {
-            const pizza = await makePizza(['pineapple']);
-            console.log(pizza);
-        } catch(err) {
-            console.log(err);
-        }
+        const pizza = await makePizza(['pineapple']);
+        console.log(pizza);
+        return pizza;
     }
 
-    go();
+    async function goGo() {
+        const result = await go();
+    }
+
+    goGo().catch(handleError);
 
   </script>
 </body>
