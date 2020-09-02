@@ -42,11 +42,19 @@
         return pizza;
     }
 
-    async function goGo() {
-        const result = await go();
-    }
+    // catch it at run time
+    //go().catch(handleError);
 
-    goGo().catch(handleError);
+    // make a safe function with a high order function
+    function makeSafe(fn, errorHandler) {
+        return function() {
+            fn().catch(errorHandler)
+        }
+    } 
+
+    const safeGo = makeSafe(go, handleError);
+
+    safeGo();
 
   </script>
 </body>
