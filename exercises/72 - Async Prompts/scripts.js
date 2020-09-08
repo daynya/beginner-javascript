@@ -30,6 +30,10 @@ function ask(options) {
       skipButton.textContent = 'Cancel';
       popup.firstElementChild.appendChild(skipButton);
       // TODO: listen for a click on cancel button
+      skipButton.addEventListener('click', function() {
+        resolve(null);
+        destroyPopup(popup);
+      }, { once: true });
     }
 
     // listen for the submit event on the inputs
@@ -50,3 +54,32 @@ function ask(options) {
     popup.classList.add('open');
   });
 }
+
+// select all buttons that have a question
+async function askQuestion(e) {
+  const button = e.currentTarget;
+  const cancel = 'cancel' in button.dataset;
+
+  const answer = await ask({ 
+    title: button.dataset.question, 
+    cancel,
+  });
+  console.log(answer);
+}
+
+const buttons = document.querySelectorAll('[data-question');
+buttons.forEach(button => button.addEventListener('click', askQuestion));
+
+const questions = [
+  { title: 'What is your name?' },
+  { title: 'What is your age', cancel: true },
+  { title: 'What is your dogs name?' },
+];
+
+const answers = Promise.all([
+  ask(questions[0]),
+  ask(questions[1]),
+  ask(questions[2]),
+]).then(answers => {
+  console.log(answers);
+});
