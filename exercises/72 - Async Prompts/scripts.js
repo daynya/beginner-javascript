@@ -76,10 +76,31 @@ const questions = [
   { title: 'What is your dogs name?' },
 ];
 
-const answers = Promise.all([
-  ask(questions[0]),
-  ask(questions[1]),
-  ask(questions[2]),
-]).then(answers => {
+// generic utility function that will work in place of specific fn below it
+async function asyncMap(array, callback) {
+  // make array to store results
+  const results = [];
+  // loop over array
+  for(const item of array) {
+    results.push(await callback(item));
+  }
+  // when loop is done, return results
+  return results;
+}
+
+async function go() {
+  const answers = await asyncMap(questions, ask);
   console.log(answers);
-});
+}
+
+go();
+
+// for of allows you to pause a loop by awaiting something inside of it
+// async function askMany() {
+//   for(const question of questions) {
+//     const answer = await ask(question);
+//     console.log(answer);
+//   }
+// }
+
+// askMany();
