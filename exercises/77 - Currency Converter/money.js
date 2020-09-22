@@ -1,6 +1,7 @@
 const fromSelect = document.querySelector('[name="from_currency"]');
 const toSelect = document.querySelector('[name="to_currency"]');
 const endpoint = 'https://api.exchangeratesapi.io/latest';
+const ratesByBase = {};
 
 const currencies = {
   USD: 'United States Dollar',
@@ -47,7 +48,14 @@ function generateOptions(options) {
 async function fetchRates(base = 'USD') {
   const res = await fetch(`${endpoint}?base=${base}`);
   const rates = await res.json();
-  console.log(rates);
+  return rates;
+}
+
+function convert(amount, from, to) {
+  // first check to see if we have rates to convert from that currency
+  if(!ratesByBase[from]) {
+    console.log(`Oh no, we don't have ${from} to convert to ${to}. So let's go get it!`);
+  }
 }
 
 const optionsHTML = generateOptions(currencies);
