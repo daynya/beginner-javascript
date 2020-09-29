@@ -1,5 +1,8 @@
-function returnHi() {
-  return `hi ${name};`
+const last = 'quigley';
+
+export function returnHi() {
+  return `hi ${name} ${last}`;
 }
 
-export returnHi;
+// Named exports
+export { last };
