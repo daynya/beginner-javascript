@@ -1,6 +1,7 @@
-import { returnHi, last } from './utils.js';
+import { returnHi as sayHi, last } from './utils.js';
+import * as everything from './wes.js';
+import { handleButtonClick } from './handlers.js';
 
-const name = 'daynya';
+const button = document.querySelector('button');
 
-console.log(returnHi(name));
-console.log(last);
+button.addEventListener('click', handleButtonClick);
