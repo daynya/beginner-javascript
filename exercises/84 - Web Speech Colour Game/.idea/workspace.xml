@@ -113,6 +113,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fbdf33c7-5b31-48e2-9499-8800cf5b0dcd" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/speech.js" beforeDir="false" afterPath="$PROJECT_DIR$/speech.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -148,8 +149,16 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1604940206984</updated>
-      <workItem from="1604940208013" duration="681000" />
+      <workItem from="1604940208013" duration="1391000" />
     </task>
+    <task id="LOCAL-00001" summary="Starting project for Speech color game.">
+      <created>1604941380386</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1604941380386</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -165,5 +174,15 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Starting project for Speech color game." />
+    <option name="LAST_COMMIT_MESSAGE" value="Starting project for Speech color game." />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="172" y="85" key="Vcs.Push.Dialog.v2" timestamp="1604941391515">
+      <screen x="0" y="23" width="1344" height="770" />
+    </state>
+    <state x="172" y="85" key="Vcs.Push.Dialog.v2/0.23.1344.770@0.23.1344.770" timestamp="1604941391515" />
   </component>
 </project>
