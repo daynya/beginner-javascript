@@ -1,3 +1,5 @@
+import {handleResult} from "./handlers";
+
 window.SpeechRecognition =
     window.SpeechRecognition ||
     window.webkitSpeechRecognition;
@@ -13,7 +15,9 @@ function start() {
   // make new speech recognition
   const recognition = new SpeechRecognition();
   recognition.continuous = true;
-  recognition.interimResults = true;
+  recognition.interimResults = true
+  recognition.onresult = handleResult;
+  recognition.start();
 }
 
 start();
