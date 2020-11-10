@@ -149,7 +149,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1604940206984</updated>
-      <workItem from="1604940208013" duration="1391000" />
+      <workItem from="1604940208013" duration="2841000" />
     </task>
     <task id="LOCAL-00001" summary="Starting project for Speech color game.">
       <created>1604941380386</created>
@@ -158,7 +158,14 @@
       <option name="project" value="LOCAL" />
       <updated>1604941380386</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Starting project for Speech color game.">
+      <created>1604947024976</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1604947024976</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -180,9 +187,9 @@
     <option name="LAST_COMMIT_MESSAGE" value="Starting project for Speech color game." />
   </component>
   <component name="WindowStateProjectService">
-    <state x="172" y="85" key="Vcs.Push.Dialog.v2" timestamp="1604941391515">
+    <state x="172" y="85" key="Vcs.Push.Dialog.v2" timestamp="1604947027980">
       <screen x="0" y="23" width="1344" height="770" />
     </state>
-    <state x="172" y="85" key="Vcs.Push.Dialog.v2/0.23.1344.770@0.23.1344.770" timestamp="1604941391515" />
+    <state x="172" y="85" key="Vcs.Push.Dialog.v2/0.23.1344.770@0.23.1344.770" timestamp="1604947027980" />
   </component>
 </project>
