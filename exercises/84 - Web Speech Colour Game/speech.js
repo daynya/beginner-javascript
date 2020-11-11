@@ -1,4 +1,13 @@
 import {handleResult} from "./handlers";
+import { colorsByLength } from "./colors";
+
+const colorsEl = document.querySelector('.colors');
+
+function displayColors(colors) {
+  colors.map(color => {
+    return `<span class="color">${color}</span>`
+  })
+}
 
 window.SpeechRecognition =
     window.SpeechRecognition ||
@@ -21,3 +30,4 @@ function start() {
 }
 
 start();
+colorsEl.innerHTML = displayColors();
