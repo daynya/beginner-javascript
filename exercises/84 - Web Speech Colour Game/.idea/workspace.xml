@@ -114,9 +114,6 @@
   <component name="ChangeListManager">
     <list default="true" id="fbdf33c7-5b31-48e2-9499-8800cf5b0dcd" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/colors.js" beforeDir="false" afterPath="$PROJECT_DIR$/colors.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handlers.js" beforeDir="false" afterPath="$PROJECT_DIR$/handlers.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/speech.js" beforeDir="false" afterPath="$PROJECT_DIR$/speech.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -151,7 +148,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1604940206984</updated>
-      <workItem from="1604940208013" duration="7672000" />
+      <workItem from="1604940208013" duration="7881000" />
     </task>
     <task id="LOCAL-00001" summary="Starting project for Speech color game.">
       <created>1604941380386</created>
@@ -188,7 +185,14 @@
       <option name="project" value="LOCAL" />
       <updated>1605110101123</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Finished logic, working speech recongition and UI update to color spoken.">
+      <created>1605196100982</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1605196100982</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -209,12 +213,13 @@
     <MESSAGE value="Starting project for Speech color game." />
     <MESSAGE value="Starting logic for Speech color game." />
     <MESSAGE value="Adding logic to sort colors, and starting to implement display of colors." />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding logic to sort colors, and starting to implement display of colors." />
+    <MESSAGE value="Finished logic, working speech recongition and UI update to color spoken." />
+    <option name="LAST_COMMIT_MESSAGE" value="Finished logic, working speech recongition and UI update to color spoken." />
   </component>
   <component name="WindowStateProjectService">
-    <state x="172" y="85" key="Vcs.Push.Dialog.v2" timestamp="1605110103886">
+    <state x="172" y="85" key="Vcs.Push.Dialog.v2" timestamp="1605196104412">
       <screen x="0" y="23" width="1344" height="770" />
     </state>
-    <state x="172" y="85" key="Vcs.Push.Dialog.v2/0.23.1344.770@0.23.1344.770" timestamp="1605110103886" />
+    <state x="172" y="85" key="Vcs.Push.Dialog.v2/0.23.1344.770@0.23.1344.770" timestamp="1605196104412" />
   </component>
 </project>
